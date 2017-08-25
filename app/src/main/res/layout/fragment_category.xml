@@ -11,26 +11,19 @@
 
     </data>
 
-    <RelativeLayout
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/listBackground"
-        android:orientation="vertical">
+        app:onRefreshListener='@{() -> viewModel.refreshProducts()}'
+        app:refreshing="@{viewModel.getIsLoading()}">
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshLayout"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/current_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:onRefreshListener='@{() -> viewModel.refreshProducts()}'
-            app:refreshing="@{viewModel.getIsLoading()}">
+            android:layout_height="match_parent" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/current_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </android.support.v4.widget.SwipeRefreshLayout>
-
-    </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </layout>

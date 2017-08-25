@@ -1,12 +1,12 @@
 package sephora.happyshop.di.modules;
 
-
 import android.content.Context;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import sephora.happyshop.di.scopes.HappyShopApplicationScope;
 
 /**
  * Created by fadel on 24/8/17.
@@ -20,7 +20,7 @@ public class ContextModule {
         mContext = context;
     }
 
-    @Singleton
+    @HappyShopApplicationScope
     @Provides
     Context provideContext() {
         return mContext;

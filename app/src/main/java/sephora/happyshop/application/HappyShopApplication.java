@@ -28,7 +28,6 @@ public class HappyShopApplication extends Application {
     public static HappyShopApplication getApp() {
         return mApp;
     }
-    ;
 
     public ApplicationComponent getApplicationComponent() {
         return mApplicationComponent;

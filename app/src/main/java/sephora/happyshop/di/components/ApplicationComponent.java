@@ -6,18 +6,19 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import retrofit2.Retrofit;
+import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Api.ApiService;
 import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
 import sephora.happyshop.di.modules.ContextModule;
 import sephora.happyshop.di.modules.NetworkModule;
+import sephora.happyshop.di.scopes.HappyShopApplicationScope;
 
 /**
  * Created by fadel on 24/8/17.
  */
-@Singleton
+@HappyShopApplicationScope
 @Component(modules = {ContextModule.class, NetworkModule.class})
 public interface ApplicationComponent {
-    Retrofit getRetrofit();
     Context getContext();
     ApiService getApiService();
 

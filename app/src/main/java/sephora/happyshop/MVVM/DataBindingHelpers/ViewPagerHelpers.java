@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import sephora.happyshop.Adapters.ViewPagerAdapter;
 import sephora.happyshop.Fragments.CategoryFragment;
 
-
 // This helper sets the viewpager internal data.
 public class ViewPagerHelpers {
     @BindingAdapter({"pager"})
@@ -20,9 +19,9 @@ public class ViewPagerHelpers {
     public static void setViewPagerAdapter(ViewPager viewPager, FragmentManager fragmentManager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(fragmentManager);
         adapter.addFragment(new CategoryFragment(), "Makeup");
-        adapter.addFragment(new CategoryFragment(), "Category2");
-        adapter.addFragment(new CategoryFragment(), "Category3");
-        adapter.addFragment(new CategoryFragment(), "Category4");
+        adapter.addFragment(new CategoryFragment(), "Skin Care");
+        adapter.addFragment(new CategoryFragment(), "Hair");
+        adapter.addFragment(new CategoryFragment(), "Tools & Brushes");
         viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(adapter);
     }

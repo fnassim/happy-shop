@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="FragmentManager"
             type="android.support.v4.app.FragmentManager" />
@@ -27,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/colorPrimary"
-                android:elevation="0dp"
                 android:weightSum="1">
 
                 <TextView
@@ -60,7 +58,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
                 app:viewPagerAdapter="@{FragmentManager}" />
-
         </FrameLayout>
 
     </android.support.design.widget.CoordinatorLayout>

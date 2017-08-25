@@ -6,7 +6,6 @@ package sephora.happyshop.MVVM.ViewModels;
 
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableBoolean;
-import android.util.Log;
 
 import javax.inject.Inject;
 
@@ -28,7 +27,6 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
 
     @Inject
     protected ApiService mApiService;
-
 
     public MainActivityViewModel() {
         productsListSubject = BehaviorSubject.create();
