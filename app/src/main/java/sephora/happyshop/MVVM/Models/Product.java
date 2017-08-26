@@ -10,7 +10,7 @@ public class Product {
     private String name;
     private String category;
     private Double price;
-    private String imgUrl;
+    private String img_url;
     private String description;
     private Boolean underSale;
 
@@ -47,11 +47,11 @@ public class Product {
     }
 
     public String getImgUrl() {
-        return imgUrl;
+        return img_url;
     }
 
     public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+        this.img_url = imgUrl;
     }
 
     public String getDescription() {

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 
 import sephora.happyshop.R;
+import sephora.happyshop.application.HappyShopApplication;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.components.DaggerMainActivityComponent;
 import sephora.happyshop.di.components.MainActivityComponent;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mComponent = DaggerMainActivityComponent.builder()
                 .mainActivityModule(new MainActivityModule(this))
+                .applicationComponent(HappyShopApplication.getApp().getApplicationComponent())
                 .build();
         mComponent.inject(this);
         mainActivityBinding.setFragmentManager(getSupportFragmentManager());

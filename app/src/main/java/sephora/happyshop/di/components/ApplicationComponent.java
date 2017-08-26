@@ -8,6 +8,7 @@ import dagger.Component;
 import retrofit2.Retrofit;
 import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Api.ApiService;
+import sephora.happyshop.Fragments.CategoryFragment;
 import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
 import sephora.happyshop.di.modules.ContextModule;
 import sephora.happyshop.di.modules.NetworkModule;
@@ -23,4 +24,5 @@ public interface ApplicationComponent {
     ApiService getApiService();
 
     void inject(MainActivityViewModel viewModel);
+    void inject(CategoryFragment fragment);
 }

@@ -23,6 +23,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:background="@color/red"
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="401dp"
@@ -39,7 +40,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
-                android:text="TextView"
+                android:text="@{itemData.name}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -51,7 +52,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
-                android:text="TextView"
+                android:text='@{"S$" + itemData.price}'
                 app:layout_constraintHorizontal_bias="0.01"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/textView3"
@@ -63,7 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="37dp"
-                android:text="TextView"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:text='@{itemData.underSale == true ? "ON SALE" : ""}'
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
