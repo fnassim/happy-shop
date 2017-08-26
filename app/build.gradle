@@ -28,7 +28,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    // UNDERSCORE
+    //UNDERSCORE
     compile 'com.github.javadev:underscore:1.0'
 
     //SUPPORT LIBRARIES
@@ -57,7 +57,6 @@ dependencies {
     //DAGGER 2
     compile 'com.google.dagger:dagger:2.9'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.9'
-
     //TESTING
     testCompile 'junit:junit:4.12'
 }

@@ -8,8 +8,6 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
-import android.util.Log;
-import android.view.View;
 
 import javax.inject.Inject;
 
@@ -20,27 +18,28 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
-import sephora.happyshop.Activities.MainActivity;
+import sephora.happyshop.Activities.ProductActivity;
 import sephora.happyshop.Api.ApiService;
-import sephora.happyshop.MVVM.Models.Product;
 import sephora.happyshop.MVVM.Models.Products;
 import sephora.happyshop.application.HappyShopApplication;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivityViewModel extends ViewModel implements Observer<Products> {
-    private Observable<Products> productsListObservable;
     private BehaviorSubject<Products> productsListSubject;
     private ObservableBoolean isLoading;
+
+    public BehaviorSubject<Products> getProductsListSubject() {
+        return productsListSubject;
+    }
 
     @Inject
     protected ApiService mApiService;
     @Inject
-    Context mContext;
+    protected Context mContext;
 
     public MainActivityViewModel() {
         productsListSubject = BehaviorSubject.create();
-        productsListObservable = this.productsListSubject;
         isLoading = new ObservableBoolean(false);
         HappyShopApplication.getApp().getApplicationComponent().inject(this);
         getProducts();
@@ -50,13 +49,10 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
         return isLoading;
     }
 
-    public Observable<Products> getProductsList() {
-        return productsListObservable;
-    }
-
     // Fetches the Products data from the API
     public void getProducts() {
-        mApiService.getProducts().observeOn(AndroidSchedulers.mainThread())
+        mApiService.getProducts()
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .subscribe(this);
@@ -89,9 +85,8 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
         isLoading.set(false);
     }
 
-    public void onItemClick(Integer id){
-        Log.d("OKOKOK","CLICKED");
-        Intent intent = new Intent(mContext, MainActivity.class);
+    public void onItemClick(Integer id) {
+        Intent intent = new Intent(mContext, ProductActivity.class);
         intent.putExtra(EXTRA_MESSAGE, id.toString());
         mContext.startActivity(intent);
     }

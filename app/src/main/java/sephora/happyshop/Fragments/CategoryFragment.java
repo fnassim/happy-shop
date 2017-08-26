@@ -15,6 +15,7 @@ import javax.inject.Inject;
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Adapters.ProductRecyclerViewAdapter;
 import sephora.happyshop.MVVM.Models.Products;
@@ -29,7 +30,6 @@ public class CategoryFragment extends Fragment implements Observer<Products> {
     private FragmentCategoryBinding fragmentCategoryBinding;
     private ProductRecyclerViewAdapter mAdapter;
 
-
     @Inject
     protected MainActivityViewModel mainActivityViewModel;
 
@@ -39,7 +39,10 @@ public class CategoryFragment extends Fragment implements Observer<Products> {
 
         mAdapter = new ProductRecyclerViewAdapter();
         MainActivity.getActivityComponent().inject(this);
-        mainActivityViewModel.getProductsList().subscribe(this);
+        mainActivityViewModel.getProductsListSubject()
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribe(this);
     }
 
     @Override

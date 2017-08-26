@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:onRefreshListener='@{() -> viewModel.refreshProducts()}'
-        app:refreshing="@{viewModel.getIsLoading()}">
+        app:refreshing="@{viewModel.isLoading}">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/products_recycler"

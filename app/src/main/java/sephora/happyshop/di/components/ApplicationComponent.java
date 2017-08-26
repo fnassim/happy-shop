@@ -5,6 +5,7 @@ import android.content.Context;
 import dagger.Component;
 import sephora.happyshop.Api.ApiService;
 import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
+import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
 import sephora.happyshop.di.modules.ContextModule;
 import sephora.happyshop.di.modules.NetworkModule;
 import sephora.happyshop.di.scopes.HappyShopApplicationScope;
@@ -19,4 +20,5 @@ public interface ApplicationComponent {
     ApiService getApiService();
 
     void inject(MainActivityViewModel viewModel);
+    void inject(ProductActivityViewModel viewModel);
 }
