@@ -38,6 +38,7 @@ public class DataObserver implements Observer<Product> {
 
     @Override
     public void onError(@NonNull Throwable e) {
+        e.printStackTrace();
     }
 
     @Override

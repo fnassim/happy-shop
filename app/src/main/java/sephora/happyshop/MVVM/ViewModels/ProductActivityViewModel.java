@@ -1,6 +1,8 @@
 package sephora.happyshop.MVVM.ViewModels;
 
 import android.arch.lifecycle.ViewModel;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.databinding.ObservableBoolean;
 
 import javax.inject.Inject;
@@ -11,11 +13,14 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
+import sephora.happyshop.Activities.ProductActivity;
 import sephora.happyshop.Api.ApiService;
 import sephora.happyshop.MVVM.Models.Product;
 import sephora.happyshop.MVVM.Models.ProductObject;
 import sephora.happyshop.application.HappyShopApplication;
 import sephora.happyshop.rx.Observers.DataObserver;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
  * Created by fadel on 26/8/17.
@@ -24,6 +29,10 @@ import sephora.happyshop.rx.Observers.DataObserver;
 public class ProductActivityViewModel extends ViewModel implements Observer<ProductObject> {
     @Inject
     protected ApiService mService;
+    @Inject
+    protected SharedPreferences.Editor prefsEditor;
+    @Inject
+    protected SharedPreferences sharedPreferences;
     private String mProductId;
     private BehaviorSubject<Product> mProductSubject;
     private ObservableBoolean isLoading;
@@ -74,5 +83,11 @@ public class ProductActivityViewModel extends ViewModel implements Observer<Prod
     @Override
     public void onComplete() {
         isLoading.set(false);
+    }
+
+    public void addToCart() {
+        int cartValue = sharedPreferences.getInt("cartArticlesNb", 0);
+        prefsEditor.putInt("cartArticlesNb", cartValue + 1);
+        prefsEditor.commit();
     }
 }

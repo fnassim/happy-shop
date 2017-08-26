@@ -1,6 +1,9 @@
 package sephora.happyshop.di.components;
 
 
+import android.app.Application;
+import android.content.SharedPreferences;
+
 import dagger.Component;
 import sephora.happyshop.Activities.ProductActivity;
 import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
@@ -18,6 +21,7 @@ import sephora.happyshop.rx.Observers.DataObserver;
 public interface ProductActivityComponent {
     ActivityProductBinding  activityProductBinding();
     ProductActivityViewModel productActivityViewModel();
+    ApplicationComponent appComp();
 
     void inject(ProductActivity activity);
 

@@ -5,15 +5,10 @@ import android.databinding.DataBindingUtil;
 
 import dagger.Module;
 import dagger.Provides;
-import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Activities.ProductActivity;
-import sephora.happyshop.MVVM.Models.Product;
-import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
 import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
 import sephora.happyshop.R;
-import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.databinding.ActivityProductBinding;
-import sephora.happyshop.di.scopes.MainActivityScope;
 import sephora.happyshop.di.scopes.ProductActivityScope;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
