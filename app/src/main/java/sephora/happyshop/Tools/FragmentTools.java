@@ -9,7 +9,7 @@ import sephora.happyshop.Fragments.CategoryFragment;
  */
 
 public class FragmentTools {
-    public static CategoryFragment createFragment(String category) {
+    public static CategoryFragment createCategoryFragment(String category) {
         Bundle b = new Bundle();
         CategoryFragment fragment = new CategoryFragment();
         b.putString("category", category);

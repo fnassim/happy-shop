@@ -15,7 +15,7 @@ import sephora.happyshop.di.modules.MainActivityModule;
 public class MainActivity extends AppCompatActivity {
     @Inject
     protected ActivityMainBinding mainActivityBinding;
-    private MainActivityComponent mComponent;
+    private static MainActivityComponent mComponent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mComponent.inject(this);
         mainActivityBinding.setFragmentManager(getSupportFragmentManager());
+    }
+
+    public static MainActivityComponent getActivityComponent(){
+        return mComponent;
     }
 }

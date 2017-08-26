@@ -1,10 +1,12 @@
 package sephora.happyshop.di.modules;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 
 import dagger.Module;
 import dagger.Provides;
 import sephora.happyshop.Activities.MainActivity;
+import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
 import sephora.happyshop.R;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.scopes.MainActivityScope;
@@ -23,7 +25,13 @@ public class MainActivityModule {
 
     @Provides
     @MainActivityScope
-    public ActivityMainBinding mainActivityBinding() {
+    ActivityMainBinding mainActivityBinding() {
         return DataBindingUtil.setContentView(mActivity, R.layout.activity_main);
+    }
+
+    @Provides
+    @MainActivityScope
+    MainActivityViewModel mainActivityViewModel() {
+        return ViewModelProviders.of(mActivity).get(MainActivityViewModel.class);
     }
 }

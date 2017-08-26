@@ -1,7 +1,6 @@
 package sephora.happyshop.Fragments;
 
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Adapters.ProductRecyclerViewAdapter;
 import sephora.happyshop.MVVM.Models.Products;
 import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
@@ -24,17 +26,20 @@ import sephora.happyshop.databinding.FragmentCategoryBinding;
  * A simple {@link Fragment} subclass.
  */
 public class CategoryFragment extends Fragment implements Observer<Products> {
-    private MainActivityViewModel mainActivityViewModel;
     private FragmentCategoryBinding fragmentCategoryBinding;
     private ProductRecyclerViewAdapter mAdapter;
+
+
+    @Inject
+    protected MainActivityViewModel mainActivityViewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+
+        mAdapter = new ProductRecyclerViewAdapter();
+        MainActivity.getActivityComponent().inject(this);
         mainActivityViewModel.getProductsList().subscribe(this);
-        mAdapter = new ProductRecyclerViewAdapter(getArguments().getString("category"));
-//        HappyShopApplication.getApp().getApplicationComponent().inject(this);
     }
 
     @Override
@@ -59,7 +64,7 @@ public class CategoryFragment extends Fragment implements Observer<Products> {
 
     @Override
     public void onNext(@NonNull Products products) {
-        mAdapter.updateList(products.getProducts());
+        mAdapter.updateList(products.getProducts(), getArguments().getString("category"));
     }
 
     @Override

@@ -5,7 +5,11 @@ package sephora.happyshop.MVVM.ViewModels;
  */
 
 import android.arch.lifecycle.ViewModel;
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.ObservableBoolean;
+import android.util.Log;
+import android.view.View;
 
 import javax.inject.Inject;
 
@@ -16,9 +20,13 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
+import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Api.ApiService;
+import sephora.happyshop.MVVM.Models.Product;
 import sephora.happyshop.MVVM.Models.Products;
 import sephora.happyshop.application.HappyShopApplication;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivityViewModel extends ViewModel implements Observer<Products> {
     private Observable<Products> productsListObservable;
@@ -27,6 +35,8 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
 
     @Inject
     protected ApiService mApiService;
+    @Inject
+    Context mContext;
 
     public MainActivityViewModel() {
         productsListSubject = BehaviorSubject.create();
@@ -77,5 +87,12 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
     @Override
     public void onComplete() {
         isLoading.set(false);
+    }
+
+    public void onItemClick(Integer id){
+        Log.d("OKOKOK","CLICKED");
+        Intent intent = new Intent(mContext, MainActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, id.toString());
+        mContext.startActivity(intent);
     }
 }

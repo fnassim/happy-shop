@@ -22,10 +22,10 @@ public class ViewPagerHelpers {
     public static void setViewPagerAdapter(ViewPager viewPager, FragmentManager fragmentManager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(fragmentManager);
 
-        adapter.addFragment(FragmentTools.createFragment(CategoryConstants.MAKE_UP), CategoryConstants.MAKE_UP);
-        adapter.addFragment(FragmentTools.createFragment(CategoryConstants.SKIN_CARE), CategoryConstants.SKIN_CARE);
-        adapter.addFragment(FragmentTools.createFragment(CategoryConstants.BATH), CategoryConstants.BATH);
-        adapter.addFragment(FragmentTools.createFragment(CategoryConstants.TOOLS), CategoryConstants.TOOLS);
+        adapter.addFragment(FragmentTools.createCategoryFragment(CategoryConstants.MAKE_UP), CategoryConstants.MAKE_UP);
+        adapter.addFragment(FragmentTools.createCategoryFragment(CategoryConstants.SKIN_CARE), CategoryConstants.SKIN_CARE);
+        adapter.addFragment(FragmentTools.createCategoryFragment(CategoryConstants.BATH), CategoryConstants.BATH);
+        adapter.addFragment(FragmentTools.createCategoryFragment(CategoryConstants.TOOLS), CategoryConstants.TOOLS);
         viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(adapter);
     }

@@ -6,14 +6,23 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="sephora.happyshop.MVVM.ViewModels.MainActivityViewModel" />
+
+        <variable
             name="itemData"
             type="sephora.happyshop.MVVM.Models.Product" />
+
     </data>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
+        android:clickable="true"
         android:elevation="3dp"
+        android:focusable="true"
+        android:onClick="@{()->viewModel.onItemClick(itemData.id)}"
         android:orientation="vertical"
         android:padding="0dp"
         app:cardCornerRadius="1dp">
@@ -23,11 +32,11 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:background="@color/red"
                 android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="401dp"
-                android:layout_marginTop="0dp"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:background="#FFFFFF"
+                android:scaleType="centerInside"
                 app:imageUrl="@{itemData.getImgUrl()}"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -35,38 +44,49 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="@{itemData.name}"
+                android:maxLength="30"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="17dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
                 android:text='@{"S$" + itemData.price}'
-                app:layout_constraintHorizontal_bias="0.01"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="37dp"
+                android:layout_width="0dp"
+                android:layout_height="17dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="67dp"
+                android:text='@{itemData.underSale == true ? "ON SALE" : ""}'
                 android:textColor="@color/red"
                 android:textStyle="bold"
-                android:text='@{itemData.underSale == true ? "ON SALE" : ""}'
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 

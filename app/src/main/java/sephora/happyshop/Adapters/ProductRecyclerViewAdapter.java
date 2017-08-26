@@ -8,7 +8,11 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.MVVM.Models.Product;
+import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
 import sephora.happyshop.R;
 import sephora.happyshop.Tools.UnderscoreTools;
 import sephora.happyshop.databinding.ProductItemBinding;
@@ -21,8 +25,11 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
     private List<Product> mProductsList;
     private String mCategory;
 
-    public ProductRecyclerViewAdapter(String category) {
-        mCategory = category;
+    @Inject
+    protected MainActivityViewModel mViewModel;
+
+    public ProductRecyclerViewAdapter() {
+        MainActivity.getActivityComponent().inject(this);
     }
 
     @Override
@@ -54,8 +61,8 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
         return -1;
     }
 
-    public void updateList(List<Product> newDataList) {
-        mProductsList = UnderscoreTools.filterProducts(newDataList, mCategory);
+    public void updateList(List<Product> newDataList, String category) {
+        mProductsList = UnderscoreTools.filterProducts(newDataList, category);
         notifyDataSetChanged();
     }
 
@@ -69,6 +76,7 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
 
         public void bind(@NonNull Product productsListItem) {
             mBinding.setItemData(productsListItem);
+            mBinding.setViewModel(mViewModel);
             mBinding.executePendingBindings();
         }
     }
