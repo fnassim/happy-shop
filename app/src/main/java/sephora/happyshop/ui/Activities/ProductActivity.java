@@ -41,12 +41,14 @@ public class ProductActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        finish();
         DisposableUtil.dispose();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        finish();
         DisposableUtil.dispose();
     }
 }
