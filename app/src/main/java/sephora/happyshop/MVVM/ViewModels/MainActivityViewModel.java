@@ -89,6 +89,7 @@ public class MainActivityViewModel extends ViewModel implements Observer<Product
     public void onItemClick(Integer id) {
         Intent intent = new Intent(mContext, ProductActivity.class);
         intent.putExtra(EXTRA_MESSAGE, id.toString());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
     }
 }
