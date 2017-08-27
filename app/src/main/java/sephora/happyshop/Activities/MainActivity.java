@@ -2,12 +2,9 @@ package sephora.happyshop.Activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.BaseTransientBottomBar;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import javax.inject.Inject;
-
 import sephora.happyshop.R;
 import sephora.happyshop.application.HappyShopApplication;
 import sephora.happyshop.databinding.ActivityMainBinding;
@@ -32,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mComponent.inject(this);
         mainActivityBinding.setFragmentManager(getSupportFragmentManager());
-
-        Toast.makeText(getApplicationContext(), Integer.valueOf(sharedPreferences.getInt("cartArticlesNb", 0)).toString(), Toast.LENGTH_SHORT).show();
+        mainActivityBinding.setCartCt(sharedPreferences.getInt("cartArticlesNb", 0));
     }
-
     public static MainActivityComponent getActivityComponent(){
         return mComponent;
     }

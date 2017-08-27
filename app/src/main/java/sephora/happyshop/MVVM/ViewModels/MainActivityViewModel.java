@@ -8,6 +8,7 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
+import android.util.Log;
 
 import javax.inject.Inject;
 

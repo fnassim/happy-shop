@@ -5,9 +5,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="FragmentManager"
             type="android.support.v4.app.FragmentManager" />
+
+        <variable
+            name="cartCt"
+            type="Integer" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -29,13 +35,61 @@
                 android:background="@color/colorPrimary"
                 android:weightSum="1">
 
-                <TextView
+                <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="20dp"/>
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/app_name"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="162dp"
+                        android:layout_marginTop="8dp"
+                        android:text="My cart:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/textView9"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.521" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{cartCt.toString()}"
+                        android:textAlignment="center"
+                        android:textColor="@color/red"
+                        android:textStyle="bold"
+                        android:visibility="@{cartCt > 1 ? View.VISIBLE : View.INVISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHorizontal_bias="0.16"
+                        app:layout_constraintLeft_toRightOf="@+id/textView8"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.521" />
+                </android.support.constraint.ConstraintLayout>
+
 
             </android.support.v7.widget.Toolbar>
 

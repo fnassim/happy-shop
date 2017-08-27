@@ -1,7 +1,6 @@
 package sephora.happyshop.MVVM.ViewModels;
 
 import android.arch.lifecycle.ViewModel;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.ObservableBoolean;
 
@@ -13,26 +12,28 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
-import sephora.happyshop.Activities.ProductActivity;
+import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Api.ApiService;
 import sephora.happyshop.MVVM.Models.Product;
 import sephora.happyshop.MVVM.Models.ProductObject;
 import sephora.happyshop.application.HappyShopApplication;
+import sephora.happyshop.databinding.ActivityMainBinding;
+import sephora.happyshop.di.components.ApplicationComponent;
 import sephora.happyshop.rx.Observers.DataObserver;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 /**
  * Created by fadel on 26/8/17.
  */
 
 public class ProductActivityViewModel extends ViewModel implements Observer<ProductObject> {
-    @Inject
     protected ApiService mService;
-    @Inject
     protected SharedPreferences.Editor prefsEditor;
-    @Inject
     protected SharedPreferences sharedPreferences;
+
+    @Inject
+    protected ActivityMainBinding mActivityMainBinding;
+
+    private ApplicationComponent mAppCompontent;
     private String mProductId;
     private BehaviorSubject<Product> mProductSubject;
     private ObservableBoolean isLoading;
@@ -47,13 +48,19 @@ public class ProductActivityViewModel extends ViewModel implements Observer<Prod
     }
 
     public ProductActivityViewModel() {
-        HappyShopApplication.getApp().getApplicationComponent().inject(this);
+        mAppCompontent = HappyShopApplication.getApp().getApplicationComponent();
+        sharedPreferences = mAppCompontent.sharedPrefs();
+        prefsEditor = mAppCompontent.editor();
+        mService = mAppCompontent.getApiService();
+
+        MainActivity.getActivityComponent().inject(this);
+
         mProductSubject = BehaviorSubject.create();
         isLoading = new ObservableBoolean(false);
         mProductSubject
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
-                .subscribe(new DataObserver(this));
+                .subscribe(new DataObserver());
     }
 
     void getProductData() {
@@ -87,7 +94,11 @@ public class ProductActivityViewModel extends ViewModel implements Observer<Prod
 
     public void addToCart() {
         int cartValue = sharedPreferences.getInt("cartArticlesNb", 0);
-        prefsEditor.putInt("cartArticlesNb", cartValue + 1);
+        cartValue += 1;
+
+        mActivityMainBinding.setCartCt(cartValue);
+        mActivityMainBinding.executePendingBindings();
+        prefsEditor.putInt("cartArticlesNb", cartValue);
         prefsEditor.commit();
     }
 }

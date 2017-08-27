@@ -33,7 +33,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
             app:imageUrl="@{product.getImgUrl()}"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintHorizontal_bias="0.0"

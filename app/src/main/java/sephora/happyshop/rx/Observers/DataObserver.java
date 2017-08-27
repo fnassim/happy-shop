@@ -21,7 +21,7 @@ public class DataObserver implements Observer<Product> {
     ActivityProductBinding productBinding;
 
 
-    public DataObserver(ProductActivityViewModel viewModel) {
+    public DataObserver() {
         ProductActivity.getComponent().inject(this);
     }
 

@@ -19,10 +19,12 @@ import sephora.happyshop.di.scopes.HappyShopApplicationScope;
 @Component(modules = {SharedPrefsModule.class, ContextModule.class, NetworkModule.class})
 public interface ApplicationComponent {
     Context getContext();
+
     ApiService getApiService();
+
     SharedPreferences sharedPrefs();
+
     SharedPreferences.Editor editor();
 
     void inject(MainActivityViewModel viewModel);
-    void inject(ProductActivityViewModel viewModel);
 }

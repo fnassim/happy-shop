@@ -6,6 +6,7 @@ import sephora.happyshop.Activities.MainActivity;
 import sephora.happyshop.Adapters.ProductRecyclerViewAdapter;
 import sephora.happyshop.Fragments.CategoryFragment;
 import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
+import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.modules.MainActivityModule;
 import sephora.happyshop.di.scopes.MainActivityScope;
@@ -23,4 +24,5 @@ public interface MainActivityComponent {
     void inject(MainActivity activity);
     void inject(CategoryFragment fragment);
     void inject(ProductRecyclerViewAdapter adapter);
+    void inject(ProductActivityViewModel viewModel);
 }
