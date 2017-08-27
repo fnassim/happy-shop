@@ -5,8 +5,8 @@ import android.databinding.DataBindingUtil;
 
 import dagger.Module;
 import dagger.Provides;
-import sephora.happyshop.Activities.MainActivity;
-import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
+import sephora.happyshop.ui.Activities.MainActivity;
+import sephora.happyshop.mvvm.ViewModels.MainActivityViewModel;
 import sephora.happyshop.R;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.scopes.MainActivityScope;

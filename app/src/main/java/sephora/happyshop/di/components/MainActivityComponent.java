@@ -2,11 +2,11 @@ package sephora.happyshop.di.components;
 
 
 import dagger.Component;
-import sephora.happyshop.Activities.MainActivity;
-import sephora.happyshop.Adapters.ProductRecyclerViewAdapter;
-import sephora.happyshop.Fragments.CategoryFragment;
-import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
-import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
+import sephora.happyshop.ui.Activities.MainActivity;
+import sephora.happyshop.ui.Adapters.ProductRecyclerViewAdapter;
+import sephora.happyshop.ui.Fragments.CategoryFragment;
+import sephora.happyshop.mvvm.ViewModels.MainActivityViewModel;
+import sephora.happyshop.mvvm.ViewModels.ProductActivityViewModel;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.modules.MainActivityModule;
 import sephora.happyshop.di.scopes.MainActivityScope;

@@ -1,4 +1,4 @@
-package sephora.happyshop.Constants;
+package sephora.happyshop.constants;
 
 /**
  * Created by fadel on 26/8/17.

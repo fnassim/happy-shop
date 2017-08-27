@@ -1,4 +1,4 @@
-package sephora.happyshop.MVVM.ViewModels;
+package sephora.happyshop.mvvm.ViewModels;
 
 import android.arch.lifecycle.ViewModel;
 import android.content.SharedPreferences;
@@ -12,14 +12,14 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
-import sephora.happyshop.Activities.MainActivity;
-import sephora.happyshop.Api.ApiService;
-import sephora.happyshop.MVVM.Models.Product;
-import sephora.happyshop.MVVM.Models.ProductObject;
+import sephora.happyshop.ui.Activities.MainActivity;
+import sephora.happyshop.api.ApiService;
+import sephora.happyshop.mvvm.Models.Product;
+import sephora.happyshop.mvvm.Models.ProductObject;
 import sephora.happyshop.application.HappyShopApplication;
 import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.components.ApplicationComponent;
-import sephora.happyshop.rx.Observers.DataObserver;
+import sephora.happyshop.rx.DataObserver;
 
 /**
  * Created by fadel on 26/8/17.

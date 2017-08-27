@@ -1,4 +1,4 @@
-package sephora.happyshop.MVVM.Models;
+package sephora.happyshop.mvvm.Models;
 
 /**
  * Created by fadel on 26/8/17.

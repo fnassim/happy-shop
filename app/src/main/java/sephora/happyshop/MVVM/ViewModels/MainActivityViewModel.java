@@ -1,4 +1,4 @@
-package sephora.happyshop.MVVM.ViewModels;
+package sephora.happyshop.mvvm.ViewModels;
 
 /**
  * Created by fadel on 23/8/17.
@@ -8,21 +8,19 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.ObservableBoolean;
-import android.util.Log;
 
 import javax.inject.Inject;
 
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
-import sephora.happyshop.Activities.ProductActivity;
-import sephora.happyshop.Api.ApiService;
-import sephora.happyshop.MVVM.Models.Products;
+import sephora.happyshop.api.ApiService;
 import sephora.happyshop.application.HappyShopApplication;
+import sephora.happyshop.mvvm.Models.Products;
+import sephora.happyshop.ui.Activities.ProductActivity;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 

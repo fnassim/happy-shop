@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="sephora.happyshop.Activities.ProductActivity">
+    tools:context=".ui.Activities.ProductActivity">
 
     <data>
 
@@ -10,11 +10,11 @@
 
         <variable
             name="viewModel"
-            type="sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel" />
+            type="sephora.happyshop.mvvm.ViewModels.ProductActivityViewModel" />
 
         <variable
             name="product"
-            type="sephora.happyshop.MVVM.Models.Product" />
+            type="sephora.happyshop.mvvm.Models.Product" />
 
     </data>
 

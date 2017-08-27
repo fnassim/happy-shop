@@ -1,15 +1,13 @@
-package sephora.happyshop.MVVM.DataBindingHelpers;
+package sephora.happyshop.mvvm.DataBindingHelpers;
 
 import android.databinding.BindingAdapter;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
-import sephora.happyshop.Adapters.ViewPagerAdapter;
-import sephora.happyshop.Constants.CategoryConstants;
-import sephora.happyshop.Fragments.CategoryFragment;
-import sephora.happyshop.Tools.FragmentTools;
+import sephora.happyshop.ui.Adapters.ViewPagerAdapter;
+import sephora.happyshop.constants.CategoryConstants;
+import sephora.happyshop.utils.FragmentTools;
 
 // This helper sets the viewpager internal data.
 public class ViewPagerHelpers {

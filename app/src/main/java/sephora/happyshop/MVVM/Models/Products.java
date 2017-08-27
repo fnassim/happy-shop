@@ -1,4 +1,4 @@
-package sephora.happyshop.MVVM.Models;
+package sephora.happyshop.mvvm.Models;
 
 import java.util.List;
 

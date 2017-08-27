@@ -1,15 +1,14 @@
 package sephora.happyshop.di.modules;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import sephora.happyshop.Api.ApiService;
-import sephora.happyshop.Constants.ApiConstants;
+import sephora.happyshop.api.ApiService;
+import sephora.happyshop.constants.ApiConstants;
 import sephora.happyshop.di.scopes.HappyShopApplicationScope;
 
 /**
@@ -26,14 +25,14 @@ public class NetworkModule {
         return ApiConstants.BASE_URL;
     }
 
-    @HappyShopApplicationScope
     @Provides
+    @HappyShopApplicationScope
     RxJava2CallAdapterFactory provideRxJava2CallAdapterFactory() {
         return RxJava2CallAdapterFactory.create();
     }
 
-    @HappyShopApplicationScope
     @Provides
+    @HappyShopApplicationScope
     GsonConverterFactory provideGsonConverterFactory() {
         return GsonConverterFactory.create();
     }
@@ -48,8 +47,8 @@ public class NetworkModule {
                 .build();
     }
 
-    @HappyShopApplicationScope
     @Provides
+    @HappyShopApplicationScope
     ApiService provideProductsApi(Retrofit retrofit) {
         return retrofit.create(ApiService.class);
     }

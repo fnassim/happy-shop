@@ -4,13 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import dagger.Component;
-import sephora.happyshop.Api.ApiService;
-import sephora.happyshop.MVVM.ViewModels.MainActivityViewModel;
-import sephora.happyshop.MVVM.ViewModels.ProductActivityViewModel;
+import sephora.happyshop.api.ApiService;
 import sephora.happyshop.di.modules.ContextModule;
 import sephora.happyshop.di.modules.NetworkModule;
 import sephora.happyshop.di.modules.SharedPrefsModule;
 import sephora.happyshop.di.scopes.HappyShopApplicationScope;
+import sephora.happyshop.mvvm.ViewModels.MainActivityViewModel;
 
 /**
  * Created by fadel on 24/8/17.

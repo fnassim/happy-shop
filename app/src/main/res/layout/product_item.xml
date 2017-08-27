@@ -8,11 +8,11 @@
 
         <variable
             name="viewModel"
-            type="sephora.happyshop.MVVM.ViewModels.MainActivityViewModel" />
+            type="sephora.happyshop.mvvm.ViewModels.MainActivityViewModel" />
 
         <variable
             name="itemData"
-            type="sephora.happyshop.MVVM.Models.Product" />
+            type="sephora.happyshop.mvvm.Models.Product" />
 
     </data>
 

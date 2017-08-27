@@ -20,8 +20,8 @@ public class ContextModule {
         mContext = context;
     }
 
-    @HappyShopApplicationScope
     @Provides
+    @HappyShopApplicationScope
     Context provideContext() {
         return mContext;
     }

@@ -1,4 +1,4 @@
-package sephora.happyshop.MVVM.DataBindingHelpers;
+package sephora.happyshop.mvvm.DataBindingHelpers;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;

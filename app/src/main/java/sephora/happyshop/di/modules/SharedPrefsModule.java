@@ -7,7 +7,7 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
-import sephora.happyshop.Constants.SharedPrefsConstants;
+import sephora.happyshop.constants.SharedPrefsConstants;
 import sephora.happyshop.di.scopes.HappyShopApplicationScope;
 
 /**

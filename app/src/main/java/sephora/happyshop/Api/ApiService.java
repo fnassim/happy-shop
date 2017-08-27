@@ -1,13 +1,10 @@
-package sephora.happyshop.Api;
-
-import java.util.List;
+package sephora.happyshop.api;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import sephora.happyshop.MVVM.Models.Product;
-import sephora.happyshop.MVVM.Models.ProductObject;
-import sephora.happyshop.MVVM.Models.Products;
+import sephora.happyshop.mvvm.Models.ProductObject;
+import sephora.happyshop.mvvm.Models.Products;
 
 // Retrofit api client interface
 public interface ApiService {
