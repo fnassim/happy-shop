@@ -20,6 +20,7 @@ import sephora.happyshop.R;
 import sephora.happyshop.databinding.FragmentCategoryBinding;
 import sephora.happyshop.mvvm.Models.Products;
 import sephora.happyshop.mvvm.ViewModels.MainActivityViewModel;
+import sephora.happyshop.rx.DisposableUtil;
 import sephora.happyshop.ui.Activities.MainActivity;
 import sephora.happyshop.ui.Adapters.ProductRecyclerViewAdapter;
 
@@ -77,5 +78,23 @@ public class CategoryFragment extends Fragment implements Observer<Products> {
     @Override
     public void onComplete() {
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        DisposableUtil.dispose();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        DisposableUtil.dispose();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        DisposableUtil.dispose();
     }
 }

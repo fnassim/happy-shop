@@ -12,6 +12,7 @@ import sephora.happyshop.databinding.ActivityMainBinding;
 import sephora.happyshop.di.components.DaggerMainActivityComponent;
 import sephora.happyshop.di.components.MainActivityComponent;
 import sephora.happyshop.di.modules.MainActivityModule;
+import sephora.happyshop.rx.DisposableUtil;
 
 public class MainActivity extends AppCompatActivity {
     private static MainActivityComponent mComponent;
@@ -35,5 +36,23 @@ public class MainActivity extends AppCompatActivity {
         mComponent.inject(this);
         mainActivityBinding.setFragmentManager(getSupportFragmentManager());
         mainActivityBinding.setCartCt(sharedPreferences.getInt("cartArticlesNb", 0));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DisposableUtil.dispose();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        DisposableUtil.dispose();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DisposableUtil.dispose();
     }
 }

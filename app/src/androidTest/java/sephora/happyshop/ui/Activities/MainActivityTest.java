@@ -1,7 +1,6 @@
 package sephora.happyshop.ui.Activities;
 
 import android.support.test.espresso.Espresso;
-import android.support.test.espresso.action.Swipe;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.rule.ActivityTestRule;
 
@@ -48,8 +47,6 @@ public class MainActivityTest {
     @Test
     public void testSwipe() {
         Espresso.onView(withId(R.id.viewPager))
-                .perform(ViewActions.swipeRight())
-                .check(matches(isDisplayed()));
-
+                .perform(ViewActions.swipeLeft());
     }
 }

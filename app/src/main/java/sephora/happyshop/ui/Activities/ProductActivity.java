@@ -12,6 +12,7 @@ import sephora.happyshop.di.components.DaggerProductActivityComponent;
 import sephora.happyshop.di.components.ProductActivityComponent;
 import sephora.happyshop.di.modules.ProductActivityModule;
 import sephora.happyshop.mvvm.ViewModels.ProductActivityViewModel;
+import sephora.happyshop.rx.DisposableUtil;
 
 public class ProductActivity extends AppCompatActivity {
     private static ProductActivityComponent mComponent;
@@ -35,5 +36,17 @@ public class ProductActivity extends AppCompatActivity {
                 .build();
         mComponent.inject(this);
         productActivityBinding.setViewModel(productActivityViewModel);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        DisposableUtil.dispose();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DisposableUtil.dispose();
     }
 }
