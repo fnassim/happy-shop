@@ -9,7 +9,6 @@ import sephora.happyshop.di.modules.ContextModule;
 import sephora.happyshop.di.modules.NetworkModule;
 import sephora.happyshop.di.modules.SharedPrefsModule;
 import sephora.happyshop.di.scopes.HappyShopApplicationScope;
-import sephora.happyshop.mvvm.ViewModels.MainActivityViewModel;
 
 /**
  * Created by fadel on 24/8/17.
@@ -24,6 +23,4 @@ public interface ApplicationComponent {
     SharedPreferences sharedPrefs();
 
     SharedPreferences.Editor editor();
-
-    void inject(MainActivityViewModel viewModel);
 }
